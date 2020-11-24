@@ -3,8 +3,6 @@ package emailvalidation;
 public class Employee 
 {
 	private String employeeEmail;
-	
-	
 
 	public Employee(String employeeEmail) 
 	{
@@ -31,6 +29,17 @@ public class Employee
 			empArray[x] = new Employee(testEmails[x]);
 		}		
 		System.out.println("Email Array Populated");
+	}
+	public static void PrintEmailArray(Employee[] empArray) 
+	{
+		int counter = 1;
+		
+		for (Employee e:empArray) 
+		{
+			System.out.println(counter + ". " + e.getEmployeeEmail());
+			counter++;
+			
+		}		
 	}
 
 }

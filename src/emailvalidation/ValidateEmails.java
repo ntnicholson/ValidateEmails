@@ -8,17 +8,43 @@ public class ValidateEmails {
 	{
 		Employee[] employeeEmails = new Employee[10];
 		Scanner userInput = new Scanner(System.in);
+		char choice;
 		
 		//Populate array with test emails
 		Employee.PopulateEmailArray(employeeEmails);
 		//Give user option to list emails in system
 		//Get input from user
 		System.out.println("Enter employee email for system to search:");
-		//
+		
+		do
+		{
+			SystemOptions(); //Display options to user
+			choice = userInput.next().charAt(0);
 			
-
+			switch (choice) 
+			{
+				case '1': //Search for Employee Email
+					//x = GetNumbers(userInput);
+					break;
+				case '2': //Print Employee Email Array
+					Employee.PrintEmailArray(employeeEmails);
+					break;
+			}
+			
+		}while (choice != '5');
+		
+		userInput.close(); //Close scanner
+		System.out.println("Goodbye"); //Tell user goodbye
+		System.exit(0); //Shut down application	
+		
 	}
-
+	public static void SystemOptions() // Give User options
+	{
+		System.out.println("");
+		System.out.println("1. [ Search for Employee Email ]");
+		System.out.println("2. [ Print List of Employee Emails ]");
+		System.out.println("5: { Close Application }");
+	}
 }
 /*
  * Project objective:
