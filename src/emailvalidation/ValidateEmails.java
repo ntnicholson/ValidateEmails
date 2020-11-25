@@ -8,6 +8,7 @@ public class ValidateEmails {
 	{
 		Employee[] employeeEmails = new Employee[10];
 		Scanner userInput = new Scanner(System.in);
+		String emailInput = null;
 		char choice;
 		
 		//Populate array with test emails
@@ -24,7 +25,8 @@ public class ValidateEmails {
 			switch (choice) 
 			{
 				case '1': //Search for Employee Email
-					//x = GetNumbers(userInput);
+					emailInput = GetEmail(userInput);
+					Employee.SearchEmailArray(emailInput, employeeEmails);
 					break;
 				case '2': //Print Employee Email Array
 					Employee.PrintEmailArray(employeeEmails);
@@ -44,6 +46,33 @@ public class ValidateEmails {
 		System.out.println("1. [ Search for Employee Email ]");
 		System.out.println("2. [ Print List of Employee Emails ]");
 		System.out.println("5: { Close Application }");
+	}
+	public static String GetEmail(Scanner userInput) 
+	{
+		String findEmail = null;
+		boolean validAddress = false;
+		
+		System.out.print("Input The E-mail ID You Want to Find: ");
+		
+		do
+		{
+			
+			if (userInput.hasNext()) 
+			{
+				findEmail = userInput.next().toLowerCase();
+				validAddress = true; //valid number received
+				
+			}
+			else
+			{
+				System.out.println("Invalid Input, please re-enter your e-mail id");
+				userInput.nextLine();
+				
+			}
+			
+		} while (validAddress == false);
+		
+		return findEmail;
 	}
 }
 /*

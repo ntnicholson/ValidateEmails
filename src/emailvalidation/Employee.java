@@ -1,6 +1,7 @@
 package emailvalidation;
+import java.util.Collections;
 
-public class Employee 
+public class Employee implements Comparable<Employee>
 {
 	private String employeeEmail;
 
@@ -41,5 +42,36 @@ public class Employee
 			
 		}		
 	}
+	public static void SearchEmailArray(String search, Employee[] empArray) 
+	{
+		int compare = 0;
+		boolean matchFound = false;
+		
+		for(Employee e:empArray) 
+		{
+			compare = e.compareTo(search);
+			
+			if (compare == 0)
+			{
+				System.out.println("Match Found");
+				matchFound = true;
+				break;
+			}		
+		}
+		if (matchFound == false) {
+			System.out.println("Match Not Found");
+		}
+	}
+	private int compareTo(String search) {
+		
+		return search.compareTo(this.employeeEmail);
+	}
+
+	@Override
+	public int compareTo(Employee o) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 
 }
